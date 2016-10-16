@@ -1,0 +1,32 @@
+.jumbotron
+
+  div
+    p
+      = link_to '签到D0-02', '/home/kaifu_signin/d0', remote: true
+      ||
+      = link_to '签到T1', '/home/kaifu_signin/t1', remote: true
+      ||
+      = link_to '生成二维码图片', '/test_pages/gen_qrcode', remote: true
+  h1 支付测试
+
+  .row
+    .col-md-6
+      .container
+        p= link_to '固定码支付D0', '/test_pages/pay'
+        = image_tag '/qrcodes/p001.png', size: 150
+    .col-md-6
+      .container
+        p= link_to '扫固定码支付T1', '/test_pages/pay_t1'
+        = image_tag '/qrcodes/p002.png', size: 150
+    .col-md-6
+      .container
+        p= link_to '扫码支付D0', '/test_pages/pay_app_t0'
+        = image_tag '/qrcodes/p003.png', size: 150
+    .col-md-6
+      .container
+        p= link_to '扫码支付T1', '/test_pages/pay_app_t1'
+        = image_tag '/qrcodes/p004.png', size: 150
+    .col-md-6
+      .container
+        p= link_to 'WAP支付', '/test_pages/pay_wap'
+        = image_tag '/qrcodes/p005.png', size: 150

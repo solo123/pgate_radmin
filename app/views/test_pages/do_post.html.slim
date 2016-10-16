@@ -1,0 +1,17 @@
+h2 post result
+p
+  = @js.to_s
+  
+- if @js[:img_url]
+  p 
+    = @js[:img_url]
+    - img_file = 'qr_' + Time.now.to_i.to_s + '.png'
+    - qr = RQRCode::QRCode.new(@js[:img_url])
+    - qr.as_png.save("public/qrcodes/#{img_file}")
+  h2 扫码支付
+  p
+    = image_tag "/qrcodes/#{img_file}", size: 200
+    
+- if @js[:redirect_url]
+  p 
+    = link_to '确认跳转支付', URI.decode(@js[:redirect_url])

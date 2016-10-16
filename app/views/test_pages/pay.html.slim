@@ -1,0 +1,22 @@
+
+.jumbotron
+  h2 支付给pooul_test(D0 B001)
+
+  = form_tag('/test_pages')
+    = hidden_field_tag 'payment[trans_type]', 'P001'
+    table.table.table-bordered.table-striped
+      tr
+        td.text-right 商户ID
+        td= text_field_tag 'payment[org_id]', 'pooul_test'
+      tr
+        td 产品标题
+        td= text_field_tag 'payment[order_title]', '测试商品'
+      tr
+        td 金额
+        td= text_field_tag 'payment[amount]'
+      tr
+        td 手续费
+        td= text_field_tag 'payment[fee]'
+      tr
+        td
+        td= submit_tag '确认支付'
