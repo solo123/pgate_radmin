@@ -49,9 +49,27 @@ RailsAdmin.config do |config|
     # history_index
     # history_show
   end
+  config.model 'RecvPost' do
+    list do
+      field :method
+      field :remote_host
+      field :header
+      field :params
+      field :status
+      field :message
+    end
+    show do
+      include_all_fields
+      field :detail do
+        formatted_value do
+          value.html_safe
+        end
+      end
+    end
+  end
   config.model 'Client' do
     navigation_label '系统管理'
-    label '商户管理'
+    label '商户账号'
   end
   config.model 'User' do
     navigation_label '系统管理'
